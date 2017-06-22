@@ -40,6 +40,7 @@ function doLocal(){
   }
 }
 function doDist(){
+  var btn = document.getElementById("btnDist");
 
 }
 function doGT(){
