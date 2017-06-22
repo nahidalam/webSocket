@@ -23,6 +23,12 @@
                 insertMessage(data)
             })
 
+            socket.on('W', function(data) {
+                //console.log(data)
+                //insertMessage(data)
+                $('#chat_zone').prepend('<p><strong>' + 'Failed attempt to modify data'+ '</strong></p>');
+            })
+
             // Adds a message to the page
             function insertMessage(message) {
                 $('#chat_zone').prepend('<p><strong>' + message + '</strong></p>');

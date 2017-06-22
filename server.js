@@ -110,11 +110,18 @@ io.sockets.on('connection', function (socket) {
 
     // When a "message" is received (click on the button), it's logged in the console
     socket.on('message', function (message) {
-        console.log(socket.username + ' Received:' + message);
+        console.log(' Received:' + message);
         //console.log('Received:' + message);
         //then broadcast it to all the clients
         //message = ent.encode(message);
         socket.broadcast.emit('C', message);
+    });
+    socket.on('wrong', function (message) {
+        console.log(' Received:' + message);
+        //console.log('Received:' + message);
+        //then broadcast it to all the clients
+        //message = ent.encode(message);
+        socket.broadcast.emit('W', message);
     });
 });
 server.listen(8080);
