@@ -29,6 +29,13 @@
                 $('#chat_zone').prepend('<p><strong>' + 'Failed attempt to modify data'+ '</strong></p>');
             })
 
+            socket.on('wGT', function(data) {
+                $('#chat_zone').prepend('<p><strong>' + 'Failed attempt to modify signature'+ '</strong></p>');
+            })
+            socket.on('mGT', function(data) {
+              $('#chat_zone').prepend('<img id="goodsign" src="fp1.jpg" />');
+            })
+
             // Adds a message to the page
             function insertMessage(message) {
                 $('#chat_zone').prepend('<p><strong>' + message + '</strong></p>');

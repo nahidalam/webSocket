@@ -118,10 +118,21 @@ io.sockets.on('connection', function (socket) {
     });
     socket.on('wrong', function (message) {
         console.log(' Received:' + message);
-        //console.log('Received:' + message);
-        //then broadcast it to all the clients
-        //message = ent.encode(message);
+        //signal all the clients there were some malicious attempts
         socket.broadcast.emit('W', message);
+    });
+
+
+    //messages related to GT
+
+    socket.on('messageGT', function (message) {
+        console.log(' Received:' + message);
+        socket.broadcast.emit('mGT', message);
+    });
+    socket.on('wrongGT', function (message) {
+        console.log(' Received:' + message);
+        //signal all the clients there were some malicious attempts in GT
+        socket.broadcast.emit('wGT', message);
     });
 });
 server.listen(8080);

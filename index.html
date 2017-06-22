@@ -41,8 +41,10 @@
             var socket = io.connect('http://localhost:8080');
             var username = "HELLO";
             var flag="false";
+            var flagGT="false";
 
 
+            //Distributed button action
             $('#btnDist').click(function () {
               var name = document.getElementById("txtName").value;
               //localStorage.setItem("storageName",name);
@@ -53,19 +55,40 @@
               document.getElementById("btnSubmit").style.display="none";
               if (flag =="false"){
                 socket.emit('message', name);
-                //$('#chat_zone').prepend('<p>' + ':saved locally and distributed' + '</p>');
                 $('#chat_zone').prepend('saved locally and distributed');
                 $('#chat_zone').prepend('<p><strong>' + name + '</strong></p>');
                 flag = "true";
-            }
-            else{
-              //emit some signal telling its a wrong try
-              socket.emit('wrong', name);
-              $('#chat_zone').prepend('Cant saved locally and distribute');
-              $('#chat_zone').prepend('<p><strong>' + name + '</strong></p>');
+              }
+              else{
+                //emit some signal telling its a wrong try
+                socket.emit('wrong', name);
+                $('#chat_zone').prepend('Cant saved locally and distribute');
+                //$('#chat_zone').prepend('<p><strong>' + name + '</strong></p>');
+              }
+            })
 
-            }
+            //GT button action
+            $('#btnGT').click(function () {
+              var name = document.getElementById("txtName").value;
+              //localStorage.setItem("storageName",name);
 
+              document.getElementById("btnLocal").style.display="none";
+              document.getElementById("btnDist").style.display="none";
+              document.getElementById("btnSubmit").style.display="none";
+              if (flagGT =="false"){
+                socket.emit('messageGT', name);
+                $('#chat_zone').prepend('saved locally and distributed signature');
+                $('#chat_zone').prepend('<p><strong>' + name + '</strong></p>');
+                $('#chat_zone').prepend('<img id="goodsign" src="fp1.jpg" />');
+                flagGT = "true";
+              }
+              else{
+                //emit some signal telling its a wrong try
+                socket.emit('wrongGT', name);
+                $('#chat_zone').prepend('Data saved locally but cant distribute signature');
+                $('#chat_zone').prepend('<p><strong>' + name + '</strong></p>');
+                $('#chat_zone').prepend('<img id="badsign" src="fp2.jpeg" />');
+              }
             })
         </script>
     </body>
