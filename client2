@@ -1,0 +1,4 @@
+var socket = io.connect('ws://127.0.0.1');
+socket.on('message', function (data) {
+    $('#client2').html(data);
+});

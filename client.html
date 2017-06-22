@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>Socket.io</title>
+    </head>
+
+    <body>
+        <h1>Tablet Client!</h1>
+
+        <section id="chat_zone">
+
+        </section>
+
+        <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+        <script src="/socket.io/socket.io.js"></script>
+        <script>
+            var socket = io.connect('http://localhost:8080');
+
+            // When a message is received it's inserted in the page
+            socket.on('C', function(data) {
+                console.log(data)
+                insertMessage(data)
+            })
+
+            // Adds a message to the page
+            function insertMessage(message) {
+                $('#chat_zone').prepend('<p><strong>' + message + '</strong></p>');
+            }
+        </script>
+    </body>
+</html>
