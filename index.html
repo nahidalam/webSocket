@@ -20,7 +20,18 @@
         </div>
       </header>
 
+      <input type = "button" id = "btnReset" value = "Reset" onclick = "location.href='index.html';">
+      <br>
       <input type="button" value="Distribute" id="poke">
+      <br>
+      <input type = "text" placeholder="Enter Your Name" id = "txtSearch"
+       onkeydown = "if (event.keyCode == 13)
+                        document.getElementById('btnSubmit').click()">
+      <input type = "button" id = "btnSubmit" value = "Submit" onclick = "showHide();">
+      <br>
+      <input type = "button" id = "btnLocal" value = "Local" class = "hidden" onclick = "location.href='local.html';">
+      <input type = "button" id = "btnDist" value = "Distributed" class = "hidden" onclick = "doDist();">
+      <input type = "button" id = "btnGT" value = "GuardTime" class = "hidden" onclick = "doGT();">
 
 
 
