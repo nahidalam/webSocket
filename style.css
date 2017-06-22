@@ -17,6 +17,9 @@ body{
 .hiddenLocalMsg{
   display: none;
 }
+.hiddenLocalButton{
+  display: none;
+}
 
 ul{
   margin:0;
