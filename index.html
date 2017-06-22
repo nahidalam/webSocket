@@ -32,6 +32,9 @@
       <input type = "button" id = "btnDist" value = "Distributed" class = "hidden" >
       <input type = "button" id = "btnGT" value = "GuardTime" class = "hidden" onclick = "doGT();">
 
+      <section id="chat_zone">
+
+      </section>
 
 
         <script>
@@ -44,8 +47,16 @@
             })*/
             $('#btnDist').click(function () {
               var name = document.getElementById("txtName").value;
+              localStorage.setItem("storageName",name);
               socket.emit('message', name);
-              location.href='dist.html';
+              //location.href='dist.html';
+              document.getElementById("btnLocal").style.display="none";
+              document.getElementById("btnGT").style.display="none";
+              document.getElementById("btnSubmit").style.display="none";
+              //$('#chat_zone').prepend('<p>' + ':saved locally and distributed' + '</p>');
+              $('#chat_zone').prepend('saved locally and distributed');
+              $('#chat_zone').prepend('<p><strong>' + name + '</strong></p>');
+
             })
         </script>
     </body>

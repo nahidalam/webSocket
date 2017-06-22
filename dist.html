@@ -19,9 +19,10 @@
         </div>
       </div>
     </header>
+
     <input type = "button" id = "btnReset" value = "Reset" onclick = "location.href='index.html';">
     <br>
-    <input type = "text" placeholder="Enter Your Name" id = "txtName"
+    <input type = "text" placeholder="Enter Your Name" id = "txtNameDist"
        onkeydown = "if (event.keyCode == 13)
                         document.getElementById('btnSubmit').click()">
 
@@ -29,6 +30,17 @@
     <br>
     <input type = "button" id = "btnLocal" value = "Distribute" class = "hiddenLocalButton" onclick = "location.href='dist.html';">
     <br>
-    <div class = "message" id ="distMsg"> Saved Local and Distributed</div>
+    <!--<div class = "message" id ="distMsg"> Saved Local and Distributed</div>-->
+    <section id="data_zone">
+
+    </section>
+    <script>
+      var func = loadData(){
+        var gotName = localStorage.getItem("storageName");
+        $('#data_zone').prepend('<p><strong>' + gotName + '</strong> + 'Saved locally'</p>');
+        $('#data_zone').prepend('<p><strong>' + gotName + '</strong> + 'Distributed'</p>');
+      }
+      window.onload = func;
+    </script>
   </body>
 </html>
