@@ -23,7 +23,7 @@
       <input type = "button" id = "btnReset" value = "Reset" onclick = "location.href='index.html';">
       <!--<input type="button" value="Distribute" id="poke">-->
       <br>
-      <input type = "text" placeholder="Enter Your Name" id = "txtSearch"
+      <input type = "text" placeholder="Enter Your Name" id = "txtName"
        onkeydown = "if (event.keyCode == 13)
                         document.getElementById('btnSubmit').click()">
       <input type = "button" id = "btnSubmit" value = "Submit" onclick = "showHide();">
@@ -36,14 +36,16 @@
 
         <script>
             var socket = io.connect('http://localhost:8080');
-            var username = "helloworld";
+            var username = "NAHID";
 
             // When the button is clicked, a "message" is sent to the server
             /*$('#poke').click(function () {
                 socket.emit('message', username);
             })*/
             $('#btnDist').click(function () {
-                socket.emit('message', username);
+              var name = document.getElementById("txtName").value;
+              socket.emit('message', name);
+              location.href='dist.html';
             })
         </script>
     </body>
