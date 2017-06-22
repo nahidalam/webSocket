@@ -1,24 +1,46 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta charset="utf-8" />
-        <title>Controller</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width">
+        <meta name="author" content="Nahid Alam">
+        <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+        <script src="/socket.io/socket.io.js"></script>
+        <title>GuardTime Technology Oveview| Welcome</title>
+        <link rel="stylesheet" href="./style.css">
     </head>
 
     <body>
-        <h1>Controller</h1>
+      <header>
+        <div class="container">
+          <div id="branding">
+            <h1>GuardTime Technology Demo</h1>
+          </div>
+        </div>
+      </header>
 
-        <p><input type="button" value="Distribute" id="poke" /></p>
+      <input type = "button" id = "btnReset" value = "Reset" onclick = "location.href='index.html';">
+      <br>
+      <input type="button" value="Distribute" id="poke">
+      <br>
+      <input type = "text" placeholder="Enter Your Name" id = "txtSearch"
+       onkeydown = "if (event.keyCode == 13)
+                        document.getElementById('btnSubmit').click()">
+
+      <input type = "button" id = "btnSubmit" value = "Submit" onclick = "showHide();">
+      <br>
+      <input type = "button" id = "btnLocal" value = "Local" class = "hidden" onclick = "location.href='local.html';">
+      <input type = "button" id = "btnDist" value = "Distributed" class = "hidden" onclick = "doDist();">
+      <input type = "button" id = "btnGT" value = "GuardTime" class = "hidden" onclick = "doGT();">
 
 
-        <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
-        <script src="/socket.io/socket.io.js"></script>
+
         <script>
             var socket = io.connect('http://localhost:8080');
             var username = "helloworld";
 
             // When the button is clicked, a "message" is sent to the server
-            $('#poke').click(function () {
+            $('#btnDist').click(function () {
                 socket.emit('message', username);
             })
         </script>
