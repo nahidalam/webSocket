@@ -27,8 +27,17 @@
 
     <input type = "button" id = "btnSubmit" value = "Submit" onclick = "showHideLocal();">
     <br>
+    <section class="borderexample" id="data_zone">
+
+    </section>
+    <script>
+      document.getElementById("btnSubmit").style.display="none";
+      //var func = loadData(){
+        var gotName = localStorage.getItem("storageName");
+        $('#data_zone').prepend('<p><strong>' + gotName + '</strong></p>');
+      //}
+      //window.onload = func;
+    </script>
     <input type = "button" id = "btnLocal" value = "Save Again" class = "hiddenLocalButton" onclick = "location.href='local.html';">
-    <br>
-    <div class = "message" id ="localMsg"> Saved Local</div>
   </body>
 </html>

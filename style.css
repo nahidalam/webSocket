@@ -21,6 +21,11 @@ body{
   display: none;
 }
 
+.borderexample{
+  border-style:solid;
+  border-color:#287EC7;
+}
+
 ul{
   margin:0;
   padding:0;

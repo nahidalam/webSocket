@@ -26,11 +26,11 @@
       <input type = "text" placeholder="Enter Your Name" id = "txtName"
        onkeydown = "if (event.keyCode == 13)
                         document.getElementById('btnSubmit').click()">
-      <input type = "button" id = "btnSubmit" value = "Submit" onclick = "showHide();">
+      <input type = "button" id = "btnSubmit" value = "Submit"  onclick = "showHide();">
       <br>
-      <input type = "button" id = "btnLocal" value = "Local" class = "hidden" onclick = "location.href='local.html';">
+      <input type = "button" id = "btnLocal" value = "Local" class = "hidden">
       <input type = "button" id = "btnDist" value = "Distributed" class = "hidden" >
-      <input type = "button" id = "btnGT" value = "GuardTime" class = "hidden" onclick = "doGT();">
+      <input type = "button" id = "btnGT" value = "Hybrid" class = "hidden">
 
       <section id="chat_zone">
 
@@ -42,7 +42,13 @@
             var username = "HELLO";
             var flag="false";
             var flagGT="false";
+            document.getElementById("btnSubmit").style.display="none";
 
+            $('#btnLocal').click(function () {
+              var name = document.getElementById("txtName").value;
+              localStorage.setItem("storageName",name);
+              location.href='local.html';
+            })
 
             //Distributed button action
             $('#btnDist').click(function () {
