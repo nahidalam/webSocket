@@ -30,6 +30,26 @@ body{
   border-color:#00e500;
 }
 
+
+@-webkit-keyframes blink {
+   50% { border-color: #ff0000; }
+}
+@-moz-keyframes blink {
+   50% { border-color: #ff0000; }
+}
+@keyframes blink {
+   50% { border-color: #ff0000; }
+}
+
+.blink{
+  border-style:solid;
+  border-color: #ff0000;
+  -webkit-animation: blink .5s step-end infinite alternate;
+  -moz-animation: blink .5s step-end infinite alternate;
+  animation: blink .5s step-end infinite alternate;
+
+}
+
 ul{
   margin:0;
   padding:0;

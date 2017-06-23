@@ -29,9 +29,18 @@
             })
 
             socket.on('W', function(data) {
-                //console.log(data)
-                //insertMessage(data)
-                $('#chat_zone').prepend('<p><strong>' + 'Failed attempt to modify data'+ '</strong></p>');
+                //document.getElementById("chat_zone").className = "blink";
+                //$('#chat_zone').prepend('<p><strong>' + 'Failed attempt to modify data'+ '</strong></p>');
+                setTimeout(function() {
+                  setInterval(function() {
+                    document.getElementById("chat_zone").style.borderColor = "#f4f4f4";
+                  }, 1000);
+                }, 500);
+
+                setInterval(function() {
+                  document.getElementById("chat_zone").style.borderColor = "red";
+                }, 1000);
+
             })
 
             socket.on('wGT', function(data) {
