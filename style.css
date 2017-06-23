@@ -25,6 +25,10 @@ body{
   border-style:solid;
   border-color:#287EC7;
 }
+.borderclient{
+  border-style:solid;
+  border-color:#00e500;
+}
 
 ul{
   margin:0;

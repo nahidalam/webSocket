@@ -7,7 +7,7 @@
     <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
     <script src="/socket.io/socket.io.js"></script>
     <script src="main.js"></script>
-    <title>GuardTime Technology Oveview| Welcome</title>
+    <title>Data Flow Architecture</title>
     <link rel="stylesheet" href="./style.css">
   </head>
 
@@ -15,32 +15,39 @@
     <header>
       <div class="container">
         <div id="branding">
-          <h1>GuardTime Technology Demo</h1>
+          <h1>Data Flow Architecture</h1>
         </div>
       </div>
     </header>
 
     <input type = "button" id = "btnReset" value = "Reset" onclick = "location.href='index.html';">
     <br>
-    <input type = "text" placeholder="Enter Your Name" id = "txtNameDist"
+    <input type = "text" placeholder="Enter A Color" id = "txtNameDist"
        onkeydown = "if (event.keyCode == 13)
                         document.getElementById('btnSubmit').click()">
 
     <input type = "button" id = "btnSubmit" value = "Submit" onclick = "showHideLocal();">
     <br>
-    <input type = "button" id = "btnLocal" value = "Distribute" class = "hiddenLocalButton" onclick = "location.href='dist.html';">
+    <input type = "button" id = "btnDistSave" value = "Save Again" class = "hiddenLocalButton">
     <br>
-    <!--<div class = "message" id ="distMsg"> Saved Local and Distributed</div>-->
-    <section id="data_zone">
+    <section class="borderexample" id="data_zone">
 
     </section>
     <script>
-      var func = loadData(){
-        var gotName = localStorage.getItem("storageName");
-        $('#data_zone').prepend('<p><strong>' + gotName + '</strong> + 'Saved locally'</p>');
-        $('#data_zone').prepend('<p><strong>' + gotName + '</strong> + 'Distributed'</p>');
-      }
-      window.onload = func;
+        var socket = io.connect('http://localhost:8080');
+        document.getElementById("btnSubmit").style.display="none";
+        var gotName = localStorage.getItem("storageNameDist");
+        $('#data_zone').prepend('<p><strong>' + gotName + '</strong></p>');
+        socket.emit('message', gotName);
+
+        $('#btnDistSave').click(function () {
+          var color = document.getElementById("txtNameDist").value;
+
+          document.getElementById("btnDistSave").style.display="none";
+          document.getElementById("txtNameDist").style.display="none";
+          //emit some signal telling its a wrong try
+          socket.emit('wrong', color);
+        })
     </script>
   </body>
 </html>

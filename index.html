@@ -53,10 +53,10 @@
             //Distributed button action
             $('#btnDist').click(function () {
               var name = document.getElementById("txtName").value;
-              //localStorage.setItem("storageName",name);
+              localStorage.setItem("storageNameDist",name);
 
-              //location.href='dist.html';
-              document.getElementById("btnLocal").style.display="none";
+              location.href='dist.html';
+              /*document.getElementById("btnLocal").style.display="none";
               document.getElementById("btnGT").style.display="none";
               document.getElementById("btnSubmit").style.display="none";
               if (flag =="false"){
@@ -69,8 +69,7 @@
                 //emit some signal telling its a wrong try
                 socket.emit('wrong', name);
                 $('#chat_zone').prepend('Cant saved locally and distribute');
-                //$('#chat_zone').prepend('<p><strong>' + name + '</strong></p>');
-              }
+              }*/
             })
 
             //GT button action

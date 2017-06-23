@@ -1,26 +1,31 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta charset="utf-8" />
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width">
+        <meta name="author" content="Nahid Alam">
+        <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+        <script src="/socket.io/socket.io.js"></script>
+        <script src="main.js"></script>
         <title>Data Nerd</title>
+        <link rel="stylesheet" href="./style.css">
     </head>
 
     <body>
         <h1>Your Data Here</h1>
-
-        <section id="chat_zone">
+        <section class = "borderclient" id="chat_zone">
 
         </section>
-
-        <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
-        <script src="/socket.io/socket.io.js"></script>
         <script>
             var socket = io.connect('http://localhost:8080');
+            document.getElementById("chat_zone").style.display="none";
 
             // When a message is received it's inserted in the page
             socket.on('C', function(data) {
-                console.log(data)
-                insertMessage(data)
+                //console.log(data)
+                //insertMessage(data)
+                document.getElementById("chat_zone").style.display="block";
+                $('#chat_zone').prepend('<p><strong>' + data + '</strong></p>');
             })
 
             socket.on('W', function(data) {
