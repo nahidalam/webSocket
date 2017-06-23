@@ -21,23 +21,35 @@
     </header>
     <input type = "button" id = "btnReset" value = "Reset" onclick = "location.href='index.html';">
     <br>
-    <input type = "text" placeholder="Enter Your Name" id = "txtNameLocal"
+    <input type = "text" placeholder="Enter A Color" id = "txtNameLocal"
        onkeydown = "if (event.keyCode == 13)
                         document.getElementById('btnSubmit').click()">
 
     <input type = "button" id = "btnSubmit" value = "Submit" onclick = "showHideLocal();">
+    <br> <br>
+    <input type = "button" id = "btnLocalSave" value = "Save Again" class = "hiddenLocalButton">
+
     <br>
     <section class="borderexample" id="data_zone">
 
     </section>
+    <br>
+    <section class="borderexample" id="data_zone2">
+
+    </section>
     <script>
       document.getElementById("btnSubmit").style.display="none";
-      //var func = loadData(){
-        var gotName = localStorage.getItem("storageName");
-        $('#data_zone').prepend('<p><strong>' + gotName + '</strong></p>');
-      //}
-      //window.onload = func;
+      document.getElementById("data_zone2").style.display="none";
+      var gotName = localStorage.getItem("storageName");
+      $('#data_zone').prepend('<p><strong>' + gotName + '</strong></p>');
+
+      $('#btnLocalSave').click(function () {
+        document.getElementById("btnLocalSave").style.display="none";
+        document.getElementById("txtNameLocal").style.display="none";
+        document.getElementById("data_zone2").style.display="block";
+        var color = document.getElementById("txtNameLocal").value;
+        $('#data_zone2').prepend('<p><strong>' + color + '</strong></p>');
+        })
     </script>
-    <input type = "button" id = "btnLocal" value = "Save Again" class = "hiddenLocalButton" onclick = "location.href='local.html';">
-  </body>
+    </body>
 </html>
