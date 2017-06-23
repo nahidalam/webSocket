@@ -15,7 +15,7 @@
     <header>
       <div class="container">
         <div id="branding">
-          <h1>Distributed Data Flow</h1>
+          <h1>Hybrid Data Model</h1>
         </div>
       </div>
     </header>
@@ -41,17 +41,23 @@
         var socket = io.connect('http://localhost:8080');
         document.getElementById("btnSubmit").style.display="none";
         document.getElementById("data_zone2").style.display="none";
-        var gotName = localStorage.getItem("storageNameDist");
+        document.getElementById("data_zone3").style.display="none";
+        var gotName = localStorage.getItem("storageNameGT");
         $('#data_zone').prepend('<p><strong>' + gotName + '</strong></p>');
-        socket.emit('message', gotName);
+        socket.emit('messageGT', name);
+        $('#data_zone').prepend('<p><strong>' + name + '</strong></p>');
+        $('#data_zone').prepend('<img id="goodsign" src="fp1.jpg" />');
 
         $('#btnDistSave').click(function () {
           var color = document.getElementById("txtNameDist").value;
-          document.getElementById("data_zone2").style.display="none";
+          //document.getElementById("data_zone3").style.display="none";
+          document.getElementById("data_zone2").style.display="block";
           //document.getElementById("btnDistSave").style.display="none";
           //document.getElementById("txtNameDist").style.display="none";
+          $('#data_zone2').prepend('<p><strong>' + color + '</strong></p>');
+          $('#data_zone2').prepend('<img id="badsign" src="fp2.jpeg" />');
           //emit some signal telling its a wrong try
-          socket.emit('wrong', color);
+          socket.emit('wrongGT', color);
         })
         $('#btnDistAdd').click(function () {
           var color = document.getElementById("txtNameDist").value;
@@ -59,10 +65,11 @@
           document.getElementById("btnDistSave").style.display="none";
           document.getElementById("btnDistAdd").style.display="none";
           document.getElementById("txtNameDist").style.display="none";
-          document.getElementById("data_zone2").style.display="block";
-          $('#data_zone2').prepend('<p><strong>' + color + '</strong></p>');
+          //document.getElementById("data_zone3").style.display="block";
+          $('#data_zone3').prepend('<p><strong>' + color + '</strong></p>');
+          $('#data_zone3').prepend('<img id="badsign" src="fp2.jpeg" />');
           //send this data for adding
-          socket.emit('message', color);
+          socket.emit('messageGT', color);
         })
     </script>
   </body>

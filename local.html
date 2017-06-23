@@ -15,7 +15,7 @@
     <header>
       <div class="container">
         <div id="branding">
-          <h1>Data Flow Architecture</h1>
+          <h1>Local Data Storage</h1>
         </div>
       </div>
     </header>
@@ -42,14 +42,26 @@
       document.getElementById("data_zone2").style.display="none";
       var gotName = localStorage.getItem("storageName");
       $('#data_zone').prepend('<p><strong>' + gotName + '</strong></p>');
+      //$('#data_zone').innerHTML = '<p><strong>' + gotName + '</strong></p>';
 
-      $('#btnLocalSave').click(function () {
+      /*$('#btnLocalSave').click(function () {
+        //this is actually add, not save
         document.getElementById("btnLocalSave").style.display="none";
         document.getElementById("txtNameLocal").style.display="none";
         document.getElementById("data_zone2").style.display="block";
         var color = document.getElementById("txtNameLocal").value;
         $('#data_zone2').prepend('<p><strong>' + color + '</strong></p>');
-        })
+      })*/
+
+        $('#btnLocalSave').click(function () {
+          //this is actually add, not save
+          document.getElementById("btnLocalSave").style.display="none";
+          document.getElementById("txtNameLocal").style.display="none";
+          //document.getElementById("data_zone2").style.display="block";
+          var color = document.getElementById("txtNameLocal").value;
+          //$('#data_zone').prepend('<p><strong>' + color + '</strong></p>');
+          document.querySelector('#data_zone').innerHTML = '<p><strong>' + color + '</strong></p>';
+          })
     </script>
     </body>
 </html>
