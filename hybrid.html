@@ -42,7 +42,8 @@
       <br>
     </div>
     <script>
-        var socket = io.connect('http://localhost:8080');
+        var socket = io.connect('http://www.ciscochill.com:80');
+        //var socket = io.connect('http://localhost:8080');
         document.getElementById("btnSubmit").style.display="none";
         document.getElementById("data_zone2").style.display="none";
         var gotName = localStorage.getItem("storageNameGT");
