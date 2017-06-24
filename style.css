@@ -24,11 +24,42 @@ body{
 .borderexample{
   border-style:solid;
   border-color:#287EC7;
+  /*display: flex;*/
 }
 .borderclient{
   border-style:solid;
   border-color:#00e500;
+
 }
+
+/*p {
+  border-right: 2px dotted #287EC7;
+  padding-right: 1em;
+  margin: 0 1em 0 0;
+}
+img {
+  max-width: 20%;
+  //float: right;
+}*/
+
+p {
+    display: inline-block;
+    border-right: 1px dotted black;
+}
+img {
+    vertical-align: middle;
+    max-width: 20%;
+}
+p:after {
+    margin-right: 1em;
+    content: "";
+}
+img:before {
+    margin-left: 1em;
+    content: "";
+}
+
+
 
 
 @-webkit-keyframes blink {
