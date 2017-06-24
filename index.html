@@ -46,12 +46,12 @@
                 if (count == 1){
                   document.getElementById("chat_zone").style.display="block";
                   //$('#chat_zone').prepend('<p><strong>' + data + '</strong></p>');
-                  $('#chat_zone').prepend('<strong>' + data + '</strong>');
+                  $('#chat_zone').prepend('<strong><center><font size="6", face="Arial, Helvetica,sans-serif">' + data + '</font></center></strong>');
               }
               else {
                 document.getElementById("chat_zone2").style.display="block";
                 //$('#chat_zone2').prepend('<p><strong>' + data + '</strong></p>');
-                $('#chat_zone2').prepend('<strong>' + data + '</strong>');
+                $('#chat_zone2').prepend('<strong><center><font size="6", face ="Arial, Helvetica,sans-serif">' + data + '</font></center></strong>');
               }
             })
 
@@ -95,11 +95,11 @@
               countGT++;
               if (countGT == 1){
                 document.getElementById("chat_zone").style.display="block";
-                $('#chat_zone').prepend('<img id="imgABC" src="imgABC.png" />');
+                $('#chat_zone').prepend('<img id="imgABC" src="imgABC.png" align="center"/>');
               }
               else {
                 document.getElementById("chat_zone2").style.display="block";
-                $('#chat_zone2').prepend('<img id="imgPQR" src="imgPQR.png" />');
+                $('#chat_zone2').prepend('<img id="imgPQR" src="imgPQR.png" align="center"/>');
                 $('#outer').addClass('borderexampleouterclient');
               }
             })
@@ -110,5 +110,8 @@
                 $('#chat_zone').prepend('<strong>' + message + '</strong>');
             }
         </script>
+        <footer>
+          Cisco Hyperinnovation Living Labs (CHILL)
+        </footer>
     </body>
 </html>

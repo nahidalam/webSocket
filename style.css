@@ -179,6 +179,13 @@ header a:hover{
   font-weight:bold;
 }
 
+#outer {
+  min-height:400px;
+}
+
+#chat_zone {
+  text-align:center;
+}
 /* Showcase */
 #showcase{
   min-height:400px;
@@ -197,6 +204,23 @@ header a:hover{
   font-size:20px;
 }
 
+
+#showcaseclient{
+  min-height:400px;
+  text-align:center;
+  color:#ffffff;
+}
+
+#showcaseclient h1{
+  margin-top:100px;
+  font-size:55px;
+  margin-bottom:10px;
+}
+
+#showcaseclient p{
+  font-size:20px;
+}
+
 /* Newsletter */
 #newsletter{
   padding:15px;
@@ -208,8 +232,13 @@ header a:hover{
   float:left;
 }
 
-#newsletter form {
+/*#newsletter form {
   float:right;
+  margin-top:15px;
+}*/
+
+#newsletter form {
+  float:center;
   margin-top:15px;
 }
 
