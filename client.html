@@ -30,6 +30,7 @@
         <script>
             var socket = io.connect('http://localhost:8080');
             var count = 0;
+            var countGT = 0;
             document.getElementById("chat_zone").style.display="none";
             document.getElementById("chat_zone2").style.display="none";
 
@@ -71,10 +72,28 @@
             })
 
             socket.on('wGT', function(data) {
-                $('#chat_zone').prepend('<p><strong>' + 'Failed attempt to modify signature'+ '</strong></p>');
+                //$('#chat_zone').prepend('<p><strong>' + 'Failed attempt to modify signature'+ '</strong></p>');
+                document.getElementById("chat_zone").className = "blink";
+                var startTime = new Date().getTime();
+                var interval = setInterval(function(){
+                if(new Date().getTime() - startTime > 60000){
+                  clearInterval(interval);
+                  return;
+                }
+                //do whatever here..
+                document.getElementById("chat_zone").className = "borderclient";
+              }, 10000);
             })
             socket.on('mGT', function(data) {
-              $('#chat_zone').prepend('<img id="goodsign" src="fp1.jpg" />');
+              countGT++;
+              if (countGT == 1){
+                document.getElementById("chat_zone").style.display="block";
+                $('#chat_zone').prepend('<img id="imgABC" src="fp1.jpg" />');
+              }
+              else {
+                document.getElementById("chat_zone2").style.display="block";
+                $('#chat_zone2').prepend('<img id="imgABC" src="fp2.jpeg" />');
+              }
             })
 
             // Adds a message to the page
