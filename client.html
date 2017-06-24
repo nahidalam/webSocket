@@ -20,6 +20,8 @@
         </div>
       </header>
       <br>
+      <div id="outer">
+      <br>
       <section class = "borderclient" id="chat_zone">
 
       </section> <br>
@@ -27,6 +29,8 @@
       <section class = "borderclient" id="chat_zone2">
 
       </section>
+      <br>
+    </div>
         <script>
             var socket = io.connect('http://localhost:8080');
             var count = 0;
@@ -93,6 +97,7 @@
               else {
                 document.getElementById("chat_zone2").style.display="block";
                 $('#chat_zone2').prepend('<img id="imgABC" src="imgXYZ.png" />');
+                $('#outer').addClass('borderexampleouterclient');
               }
             })
 

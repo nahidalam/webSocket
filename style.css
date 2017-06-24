@@ -21,15 +21,34 @@ body{
   display: none;
 }
 
+
+.borderexampleouter{
+  border-style:double;
+  border-color:"black";
+  /*border-color:#287EC7;*/
+  border-spacing: 10px;
+  /*display: flex;*/
+}
+
 .borderexample{
   border-style:solid;
-  border-color:#287EC7;
+  /*border-color:#287EC7;*/
+  border-color:"black";
   /*display: flex;*/
 }
 .borderclient{
   border-style:solid;
-  border-color:#00e500;
+  /*border-color:#00e500;*/
+  border-color: #008000;
+  /*border-color: #006400; *//*dark green*/
 
+}
+.borderexampleouterclient{
+  border-style:double;
+  border-color:#008000;
+  /*border-color:#287EC7;*/
+  border-spacing: 10px;
+  /*display: flex;*/
 }
 
 /*p {

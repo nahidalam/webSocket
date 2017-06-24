@@ -31,17 +31,20 @@
     <input type = "button" id = "btnDistSave" value = "Save Again" class = "hiddenLocalButton">
     <input type = "button" id = "btnDistAdd" value = "Add Data" class = "hiddenLocalButton">
     <br><br>
-    <section class="borderexample" id="data_zone">
+    <div id="outer">
+      <br>
+      <section class="borderexample" id="data_zone">
 
-    </section> <br>
-    <section class="borderexample" id="data_zone2">
+      </section> <br>
+      <section class="borderexample" id="data_zone2">
 
-    </section>
+      </section>
+      <br>
+    </div>
     <script>
         var socket = io.connect('http://localhost:8080');
         document.getElementById("btnSubmit").style.display="none";
         document.getElementById("data_zone2").style.display="none";
-        //document.getElementById("data_zone3").style.display="none";
         var gotName = localStorage.getItem("storageNameGT");
         socket.emit('messageGT', gotName);
         document.querySelector('#data_zone').innerHTML = '<p><strong>' + gotName + '</strong></p>' + '<img id="imgABC" src="imgABC.png" />';
@@ -51,7 +54,6 @@
 
         $('#btnDistSave').click(function () {
           var color = document.getElementById("txtNameDist").value;
-          //document.getElementById("data_zone2").style.display="block";
           document.querySelector('#data_zone').innerHTML = '<p><strong>' + color + '</strong></p>' + '<img id="imgABC" src="imgABC.png" />';
           //document.querySelector("#data_zone").innerHTML = "<p><strong>" + color + "</strong></p>" + '<div><img id="imgABC" src="imgABC.png" /><div>';
 
@@ -67,6 +69,9 @@
           document.getElementById("data_zone2").style.display="block";
           document.querySelector('#data_zone2').innerHTML = '<p><strong>' + color + '</strong></p>' + '<img id="imgXYZ" src="imgXYZ.png" />';
           //document.querySelector("#data_zone2").innerHTML ="<p><strong>" +color +"</strong></p>" +'<div><img id="imgXYZ" src="imgXYZ.png" /><div>';
+          $('#outer').addClass('borderexampleouter');
+          //document.getElementById("outer").addClass = "borderexample";
+          //}
           //send this data for adding
           socket.emit('messageGT', color);
         })
