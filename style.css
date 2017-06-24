@@ -30,6 +30,12 @@ body{
   /*display: flex;*/
 }
 
+.borderexamplelocaldist{
+  border-style:solid;
+  /*border-color:#287EC7;*/
+  border-color:"black";
+  /*display: flex;*/
+}
 .borderexample{
   border-style:solid;
   /*border-color:#287EC7;*/

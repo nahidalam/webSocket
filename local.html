@@ -30,18 +30,18 @@
     <input type = "button" id = "btnLocalSave" value = "Save Again" class = "hiddenLocalButton">
 
     <br>
-    <section class="borderexample" id="data_zone">
+    <section class="borderexamplelocaldist" id="data_zone">
 
     </section>
     <br>
-    <section class="borderexample" id="data_zone2">
+    <section class="borderexamplelocaldist" id="data_zone2">
 
     </section>
     <script>
       document.getElementById("btnSubmit").style.display="none";
       document.getElementById("data_zone2").style.display="none";
       var gotName = localStorage.getItem("storageName");
-      $('#data_zone').prepend('<p><strong>' + gotName + '</strong></p>');
+      $('#data_zone').prepend('<strong>' + gotName + '</strong>');
       //$('#data_zone').innerHTML = '<p><strong>' + gotName + '</strong></p>';
 
       /*$('#btnLocalSave').click(function () {
@@ -60,7 +60,7 @@
           //document.getElementById("data_zone2").style.display="block";
           var color = document.getElementById("txtNameLocal").value;
           //$('#data_zone').prepend('<p><strong>' + color + '</strong></p>');
-          document.querySelector('#data_zone').innerHTML = '<p><strong>' + color + '</strong></p>';
+          document.querySelector('#data_zone').innerHTML = '<strong>' + color + '</strong>';
           })
     </script>
     </body>

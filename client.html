@@ -45,11 +45,13 @@
                 count++;
                 if (count == 1){
                   document.getElementById("chat_zone").style.display="block";
-                  $('#chat_zone').prepend('<p><strong>' + data + '</strong></p>');
+                  //$('#chat_zone').prepend('<p><strong>' + data + '</strong></p>');
+                  $('#chat_zone').prepend('<strong>' + data + '</strong>');
               }
               else {
                 document.getElementById("chat_zone2").style.display="block";
-                $('#chat_zone2').prepend('<p><strong>' + data + '</strong></p>');
+                //$('#chat_zone2').prepend('<p><strong>' + data + '</strong></p>');
+                $('#chat_zone2').prepend('<strong>' + data + '</strong>');
               }
             })
 
@@ -104,7 +106,8 @@
 
             // Adds a message to the page
             function insertMessage(message) {
-                $('#chat_zone').prepend('<p><strong>' + message + '</strong></p>');
+                //$('#chat_zone').prepend('<p><strong>' + message + '</strong></p>');
+                $('#chat_zone').prepend('<strong>' + message + '</strong>');
             }
         </script>
     </body>

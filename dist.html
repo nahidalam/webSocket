@@ -31,10 +31,10 @@
     <input type = "button" id = "btnDistSave" value = "Save Again" class = "hiddenLocalButton">
     <input type = "button" id = "btnDistAdd" value = "Add Data" class = "hiddenLocalButton">
     <br><br>
-    <section class="borderexample" id="data_zone">
+    <section class="borderexamplelocaldist" id="data_zone">
 
     </section> <br>
-    <section class="borderexample" id="data_zone2">
+    <section class="borderexamplelocaldist" id="data_zone2">
 
     </section>
     <script>
@@ -43,7 +43,8 @@
         document.getElementById("btnSubmit").style.display="none";
         document.getElementById("data_zone2").style.display="none";
         var gotName = localStorage.getItem("storageNameDist");
-        $('#data_zone').prepend('<p><strong>' + gotName + '</strong></p>');
+        //$('#data_zone').prepend('<p><strong>' + gotName + '</strong></p>');
+        $('#data_zone').prepend('<strong>' + gotName + '</strong>');
         socket.emit('message', gotName);
 
         $('#btnDistSave').click(function () {
@@ -61,7 +62,8 @@
           document.getElementById("btnDistAdd").style.display="none";
           document.getElementById("txtNameDist").style.display="none";
           document.getElementById("data_zone2").style.display="block";
-          $('#data_zone2').prepend('<p><strong>' + color + '</strong></p>');
+          //$('#data_zone2').prepend('<p><strong>' + color + '</strong></p>');
+          $('#data_zone2').prepend('<strong>' + color + '</strong>');
           //send this data for adding
           socket.emit('message', color);
         })
