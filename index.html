@@ -7,7 +7,7 @@
         <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
         <script src="/socket.io/socket.io.js"></script>
         <script src="main.js"></script>
-        <title>Data Flow Architecture</title>
+        <title>Data Nerd</title>
         <link rel="stylesheet" href="./style.css">
     </head>
 
@@ -15,86 +15,100 @@
       <header>
         <div class="container">
           <div id="branding">
-            <h1>Data Flow Architecture</h1>
+            <h1>Your Data Here</h1>
           </div>
         </div>
       </header>
-
-      <input type = "button" id = "btnReset" value = "Reset" onclick = "location.href='index.html';">
-      <!--<input type="button" value="Distribute" id="poke">-->
       <br>
-      <input type = "text" placeholder="Enter Your Name" id = "txtName"
-       onkeydown = "if (event.keyCode == 13)
-                        document.getElementById('btnSubmit').click()">
-      <input type = "button" id = "btnSubmit" value = "Submit"  onclick = "showHide();">
+      <div id="outer">
       <br>
-      <input type = "button" id = "btnLocal" value = "Local" class = "hidden">
-      <input type = "button" id = "btnDist" value = "Distributed" class = "hidden" >
-      <input type = "button" id = "btnGT" value = "Hybrid" class = "hidden">
+      <section class = "borderclient" id="chat_zone">
 
-      <section id="chat_zone">
+      </section> <br>
+
+      <section class = "borderclient" id="chat_zone2">
 
       </section>
-
-
+      <br>
+    </div>
         <script>
-            var socket = io.connect('http://localhost:8080');
-            var username = "HELLO";
-            var flag="false";
-            var flagGT="false";
-            document.getElementById("btnSubmit").style.display="none";
+            var socket = io.connect('http://www.ciscochill.com:80');
+            //var socket = io.connect('http://localhost:8080');
+            var count = 0;
+            var countGT = 0;
+            document.getElementById("chat_zone").style.display="none";
+            document.getElementById("chat_zone2").style.display="none";
 
-            $('#btnLocal').click(function () {
-              var name = document.getElementById("txtName").value;
-              localStorage.setItem("storageName",name);
-              location.href='local.html';
-            })
-
-            //Distributed button action
-            $('#btnDist').click(function () {
-              var name = document.getElementById("txtName").value;
-              localStorage.setItem("storageNameDist",name);
-
-              location.href='dist.html';
-              /*document.getElementById("btnLocal").style.display="none";
-              document.getElementById("btnGT").style.display="none";
-              document.getElementById("btnSubmit").style.display="none";
-              if (flag =="false"){
-                socket.emit('message', name);
-                $('#chat_zone').prepend('saved locally and distributed');
-                $('#chat_zone').prepend('<p><strong>' + name + '</strong></p>');
-                flag = "true";
+            // When a message is received it's inserted in the page
+            socket.on('C', function(data) {
+                //insertMessage(data)
+                count++;
+                if (count == 1){
+                  document.getElementById("chat_zone").style.display="block";
+                  //$('#chat_zone').prepend('<p><strong>' + data + '</strong></p>');
+                  $('#chat_zone').prepend('<strong>' + data + '</strong>');
               }
-              else{
-                //emit some signal telling its a wrong try
-                socket.emit('wrong', name);
-                $('#chat_zone').prepend('Cant saved locally and distribute');
-              }*/
+              else {
+                document.getElementById("chat_zone2").style.display="block";
+                //$('#chat_zone2').prepend('<p><strong>' + data + '</strong></p>');
+                $('#chat_zone2').prepend('<strong>' + data + '</strong>');
+              }
             })
 
-            //GT button action
-            $('#btnGT').click(function () {
-              var name = document.getElementById("txtName").value;
-              localStorage.setItem("storageNameGT",name);
-              location.href='hybrid.html';
-              /*document.getElementById("btnLocal").style.display="none";
-              document.getElementById("btnDist").style.display="none";
-              document.getElementById("btnSubmit").style.display="none";
-              if (flagGT =="false"){
-                socket.emit('messageGT', name);
-                $('#chat_zone').prepend('saved locally and distributed signature');
-                $('#chat_zone').prepend('<p><strong>' + name + '</strong></p>');
-                $('#chat_zone').prepend('<img id="goodsign" src="fp1.jpg" />');
-                flagGT = "true";
-              }
-              else{
-                //emit some signal telling its a wrong try
-                socket.emit('wrongGT', name);
-                $('#chat_zone').prepend('Data saved locally but cant distribute signature');
-                $('#chat_zone').prepend('<p><strong>' + name + '</strong></p>');
-                $('#chat_zone').prepend('<img id="badsign" src="fp2.jpeg" />');
-              }*/
+            socket.on('W', function(data) {
+                document.getElementById("chat_zone").className = "blink";
+                /*setTimeout(function() {
+                  setInterval(function() {
+                    document.getElementById("chat_zone").style.borderColor = "#f4f4f4";
+                  }, 1000);
+                }, 500);
+
+                setInterval(function() {
+                  document.getElementById("chat_zone").style.borderColor = "red";
+                }, 1000);*/
+                var startTime = new Date().getTime();
+                var interval = setInterval(function(){
+                if(new Date().getTime() - startTime > 60000){
+                  clearInterval(interval);
+                  return;
+                }
+                //do whatever here..
+                document.getElementById("chat_zone").className = "borderclient";
+              }, 10000);
+
             })
+
+            socket.on('wGT', function(data) {
+                //$('#chat_zone').prepend('<p><strong>' + 'Failed attempt to modify signature'+ '</strong></p>');
+                document.getElementById("chat_zone").className = "blink";
+                var startTime = new Date().getTime();
+                var interval = setInterval(function(){
+                if(new Date().getTime() - startTime > 60000){
+                  clearInterval(interval);
+                  return;
+                }
+                //do whatever here..
+                document.getElementById("chat_zone").className = "borderclient";
+              }, 10000);
+            })
+            socket.on('mGT', function(data) {
+              countGT++;
+              if (countGT == 1){
+                document.getElementById("chat_zone").style.display="block";
+                $('#chat_zone').prepend('<img id="imgABC" src="imgABC.png" />');
+              }
+              else {
+                document.getElementById("chat_zone2").style.display="block";
+                $('#chat_zone2').prepend('<img id="imgPQR" src="imgPQR.png" />');
+                $('#outer').addClass('borderexampleouterclient');
+              }
+            })
+
+            // Adds a message to the page
+            function insertMessage(message) {
+                //$('#chat_zone').prepend('<p><strong>' + message + '</strong></p>');
+                $('#chat_zone').prepend('<strong>' + message + '</strong>');
+            }
         </script>
     </body>
 </html>
