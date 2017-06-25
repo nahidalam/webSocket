@@ -25,6 +25,7 @@ body{
 .borderexampleouter{
   border-style:double;
   border-color:"black";
+  /*border-color: #ffffff;*/
   /*border-color:#287EC7;*/
   border-spacing: 10px;
   /*display: flex;*/
@@ -33,13 +34,15 @@ body{
 .borderexamplelocaldist{
   border-style:solid;
   /*border-color:#287EC7;*/
-  border-color:"black";
+  /*border-color:"black";*/
+  border-color: #ffffff;
   /*display: flex;*/
 }
 .borderexample{
   border-style:solid;
   /*border-color:#287EC7;*/
-  border-color:"black";
+  /*border-color:"black";*/
+  border-color: #ffffff;
   /*display: flex;*/
 }
 .borderclient{
@@ -181,6 +184,7 @@ header a:hover{
 
 #outer {
   min-height:400px;
+  background:#35424a
 }
 
 #chat_zone {
@@ -228,6 +232,33 @@ header a:hover{
   color:#ffffff;
 
 }
+#btnLocalSave{
+  height:38px;
+  background:#e8491d;
+  border:0;
+  padding-left: 20px;
+  padding-right:20px;
+  color:#ffffff;
+
+}
+#btnDistSave{
+  height:38px;
+  background:#e8491d;
+  border:0;
+  padding-left: 20px;
+  padding-right:20px;
+  color:#ffffff;
+
+}
+#btnDistAdd{
+  height:38px;
+  background:#e8491d;
+  border:0;
+  padding-left: 20px;
+  padding-right:20px;
+  color:#ffffff;
+
+}
 .buttonHolder{ text-align: center; }
 
 /* Showcase */
@@ -266,6 +297,12 @@ header a:hover{
 }
 
 /* Newsletter */
+#newslettercontrol{
+  padding:15px;
+  color:#ffffff;
+  background:#35424a
+  min-height:400px;
+}
 #newsletter{
   padding:15px;
   color:#ffffff;

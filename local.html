@@ -24,17 +24,23 @@
         </nav>
       </div>
     </header>
-    <!--<input type = "button" id = "btnReset" value = "Reset" onclick = "location.href='control.html';">-->
-    <br>
-    <input type = "email" placeholder="Enter A Color" id = "txtNameLocal"
+    <section id="newsletter">
+      <div class="container">
+        <div class="buttonHolder">
+          <!--<input type = "button" id = "btnReset" value = "Reset" onclick = "location.href='control.html';">-->
+          <br><br>
+          <input type = "email" placeholder="Enter A Color" id = "txtNameLocal"
        onkeydown = "if (event.keyCode == 13)
                         document.getElementById('btnSubmit').click()">
 
-    <input type = "button" id = "btnSubmit" value = "Submit" onclick = "showHideLocal();">
-    <br> <br>
-    <input type = "button" id = "btnLocalSave" value = "Save Again" class = "hiddenLocalButton">
+          <input type = "button" id = "btnSubmit" value = "Submit" onclick = "showHideLocal();"><br> <br>
+          <input type = "button" id = "btnLocalSave" value = "Save Again" class = "hiddenLocalButton">
+        </div>
+      </div>
+    </section>
 
-    <br>
+    <div id="outer">
+    <br><br><br>
     <section class="borderexamplelocaldist" id="data_zone">
 
     </section>
@@ -42,11 +48,12 @@
     <section class="borderexamplelocaldist" id="data_zone2">
 
     </section>
+    </div>
     <script>
       document.getElementById("btnSubmit").style.display="none";
       document.getElementById("data_zone2").style.display="none";
       var gotName = localStorage.getItem("storageName");
-      $('#data_zone').prepend('<strong>' + gotName + '</strong>');
+      $('#data_zone').prepend('<strong><center><font size="6", face="Arial, Helvetica,sans-serif", color="#ffffff">' + gotName + '</font></center></strong>');
       //$('#data_zone').innerHTML = '<p><strong>' + gotName + '</strong></p>';
 
       /*$('#btnLocalSave').click(function () {
@@ -65,8 +72,11 @@
           //document.getElementById("data_zone2").style.display="block";
           var color = document.getElementById("txtNameLocal").value;
           //$('#data_zone').prepend('<p><strong>' + color + '</strong></p>');
-          document.querySelector('#data_zone').innerHTML = '<strong>' + color + '</strong>';
+          document.querySelector('#data_zone').innerHTML = '<strong><center><font size="6", face="Arial, Helvetica,sans-serif", color="#ffffff">' + color + '</font></center></strong>';
           })
     </script>
+    <footer>
+      Cisco Hyperinnovation Living Labs (CHILL)
+    </footer>
     </body>
 </html>
