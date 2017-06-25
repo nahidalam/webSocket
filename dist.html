@@ -57,7 +57,7 @@
         var gotName = localStorage.getItem("storageNameDist");
         //$('#data_zone').prepend('<p><strong>' + gotName + '</strong></p>');
         //$('#data_zone').prepend('<strong>' + gotName + '</strong>');
-        $('#data_zone').prepend('<strong><center><font size="6", face="Arial, Helvetica,sans-serif", color="#ffffff">' + gotName + '</font></center></strong>');
+        $('#data_zone').prepend('<strong><font size="6", face="Arial, Helvetica,sans-serif", color="#ffffff">' + gotName + '</font></strong>');
         socket.emit('message', gotName);
 
         $('#btnDistSave').click(function () {
@@ -77,7 +77,7 @@
           document.getElementById("data_zone2").style.display="block";
           //$('#data_zone2').prepend('<p><strong>' + color + '</strong></p>');
           //$('#data_zone2').prepend('<strong>' + color + '</strong>');
-          $('#data_zone2').prepend('<strong><center><font size="6", face="Arial, Helvetica,sans-serif", color="#ffffff">' + color + '</font></center></strong>');
+          $('#data_zone2').prepend('<strong><font size="6", face="Arial, Helvetica,sans-serif", color="#ffffff">' + color + '</font></strong>');
           //send this data for adding
           socket.emit('message', color);
         })

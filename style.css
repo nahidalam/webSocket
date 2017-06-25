@@ -24,8 +24,8 @@ body{
 
 .borderexampleouter{
   border-style:double;
-  border-color:"black";
-  /*border-color: #ffffff;*/
+  /*border-color:"black";*/
+  border-color: #ffffff;
   /*border-color:#287EC7;*/
   border-spacing: 10px;
   /*display: flex;*/
@@ -72,7 +72,7 @@ img {
 
 p {
     display: inline-block;
-    border-right: 1px dotted black;
+    border-right: 1px dotted #ffffff;
 }
 img {
     vertical-align: middle;
@@ -188,6 +188,15 @@ header a:hover{
 }
 
 #chat_zone {
+  text-align:center;
+}
+#data_zone {
+  text-align:center;
+}
+#chat_zone2 {
+  text-align:center;
+}
+#data_zone2 {
   text-align:center;
 }
 

@@ -17,22 +17,30 @@
         <div id="branding">
           <h1>Hybrid Data Model</h1>
         </div>
+        <nav>
+          <ul>
+            <input type = "button" id = "btnReset" value = "Reset" onclick = "location.href='control.html';">
+          </ul>
+        </nav>
       </div>
     </header>
-
-    <input type = "button" id = "btnReset" value = "Reset" onclick = "location.href='control.html';">
-    <br>
-    <input type = "email" placeholder="Enter A Color" id = "txtNameDist"
-       onkeydown = "if (event.keyCode == 13)
+    <section id="newsletter">
+      <div class="container">
+        <div class="buttonHolder">
+          <!--<input type = "button" id = "btnReset" value = "Reset" onclick = "location.href='control.html';">-->
+          <br><br><br>
+          <input type = "email" placeholder="Enter A Color" id = "txtNameDist"
+              onkeydown = "if (event.keyCode == 13)
                         document.getElementById('btnSubmit').click()">
 
-    <input type = "button" id = "btnSubmit" value = "Submit" onclick = "showHideLocal();">
-    <br>
-    <input type = "button" id = "btnDistSave" value = "Save Again" class = "hiddenLocalButton">
-    <input type = "button" id = "btnDistAdd" value = "Add Data" class = "hiddenLocalButton">
-    <br><br>
+          <input type = "button" id = "btnSubmit" value = "Submit" onclick = "showHideLocal();"><br><br>
+          <input type = "button" id = "btnDistSave" value = "Save Again" class = "hiddenLocalButton">
+          <input type = "button" id = "btnDistAdd" value = "Add Data" class = "hiddenLocalButton">
+        </div>
+      </div>
+    </section>
     <div id="outer">
-      <br>
+      <br><br>
       <section class="borderexample" id="data_zone">
 
       </section> <br>
@@ -48,14 +56,14 @@
         document.getElementById("data_zone2").style.display="none";
         var gotName = localStorage.getItem("storageNameGT");
         socket.emit('messageGT', gotName);
-        document.querySelector('#data_zone').innerHTML = '<p><strong>' + gotName + '</strong></p>' + '<img id="imgABC" src="imgABC.png" />';
+        document.querySelector('#data_zone').innerHTML = '<p><strong><font size="6", face="Arial, Helvetica,sans-serif", color="#ffffff">' + gotName + '</font></strong></p>' + '<img id="imgABC" src="imgABC1.png" />';
         //document.querySelector("#data_zone").innerHTML ='<p><strong>' + gotName + '<p><strong>' + '<div><img id="imgABC" src="imgABC.png" /><div>';
 
         //document.querySelector("#data_zone").innerHTML ="<p><strong>" +gotName +"</strong></p>" +'<div><img id="imgABC" src="imgABC.png" /><div>';
 
         $('#btnDistSave').click(function () {
           var color = document.getElementById("txtNameDist").value;
-          document.querySelector('#data_zone').innerHTML = '<p><strong>' + color + '</strong></p>' + '<img id="imgABC" src="imgXYZ.png" />';
+          document.querySelector('#data_zone').innerHTML = '<p><strong><font size="6", face="Arial, Helvetica,sans-serif", color="#ffffff">' + color + '</font></strong></p>' + '<img id="imgABC" src="imgXYZ1.png" />';
           //document.querySelector("#data_zone").innerHTML = "<p><strong>" + color + "</strong></p>" + '<div><img id="imgABC" src="imgABC.png" /><div>';
 
           //emit some signal telling its a wrong try
@@ -68,7 +76,7 @@
           document.getElementById("btnDistAdd").style.display="none";
           document.getElementById("txtNameDist").style.display="none";
           document.getElementById("data_zone2").style.display="block";
-          document.querySelector('#data_zone2').innerHTML = '<p><strong>' + color + '</strong></p>' + '<img id="imgPQR" src="imgPQR.png" />';
+          document.querySelector('#data_zone2').innerHTML = '<p><strong><font size="6", face="Arial, Helvetica,sans-serif", color="#ffffff">' + color + '</font></strong></p>' + '<img id="imgPQR" src="imgPQR1.png" />';
           //document.querySelector("#data_zone2").innerHTML ="<p><strong>" +color +"</strong></p>" +'<div><img id="imgXYZ" src="imgXYZ.png" /><div>';
           $('#outer').addClass('borderexampleouter');
           //document.getElementById("outer").addClass = "borderexample";
