@@ -17,23 +17,33 @@
           <div id="branding">
             <h1>Data Flow Architecture</h1>
           </div>
+          <nav>
+            <ul>
+              <input type = "button" id = "btnReset" value = "Reset" onclick = "location.href='control.html';">
+            </ul>
+          </nav>
         </div>
       </header>
 
-      <input type = "button" id = "btnReset" value = "Reset" onclick = "location.href='control.html';">
-      <br>
-      <input type = "text" placeholder="Enter Your Name" id = "txtName"
-       onkeydown = "if (event.keyCode == 13)
+      <section id="newsletter">
+        <div class="container">
+          <div class="buttonHolder">
+          <!--<input type = "button" id = "btnReset" value = "Reset" onclick = "location.href='control.html';">--><br><br>
+          <input type = "email" placeholder="Enter Your Name" id = "txtName"
+            onkeydown = "if (event.keyCode == 13)
                         document.getElementById('btnSubmit').click()">
-      <input type = "button" id = "btnSubmit" value = "Submit"  onclick = "showHide();">
-      <br>
-      <input type = "button" id = "btnLocal" value = "Local" class = "hidden">
-      <input type = "button" id = "btnDist" value = "Distributed" class = "hidden" >
-      <input type = "button" id = "btnGT" value = "Hybrid" class = "hidden">
-
-      <section id="chat_zone">
-
+          <input type = "button" id = "btnSubmit" value = "Submit"  onclick = "showHide();"><br><br>
+          <input type = "button" id = "btnLocal" value = "Local" class = "hidden">
+          <input type = "button" id = "btnDist" value = "Distributed" class = "hidden" >
+          <input type = "button" id = "btnGT" value = "Hybrid" class = "hidden">
+        </div>
+        </div>
       </section>
+      <div id="outer">
+        <section id="chat_zone">
+
+        </section>
+      </div>
 
 
         <script>
