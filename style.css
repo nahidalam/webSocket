@@ -48,13 +48,15 @@ body{
 .borderclient{
   border-style:solid;
   /*border-color:#00e500;*/
-  border-color: #008000;
+  /*border-color: #008000;*/
+  border-color: #ffffff;
   /*border-color: #006400; *//*dark green*/
 
 }
 .borderexampleouterclient{
   border-style:double;
-  border-color:#008000;
+  /*border-color:#008000;*/
+  border-color: #ffffff;
   /*border-color:#287EC7;*/
   border-spacing: 10px;
   /*display: flex;*/
@@ -183,7 +185,7 @@ header a:hover{
 }
 
 #outer {
-  min-height:400px;
+  min-height:600px;
   background:#35424a
 }
 

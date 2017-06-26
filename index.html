@@ -19,9 +19,9 @@
           </div>
         </div>
       </header>
-      <br>
+
       <div id="outer">
-      <br>
+      <br><br>
       <section class = "borderclient" id="chat_zone">
 
       </section> <br>
@@ -46,12 +46,12 @@
                 if (count == 1){
                   document.getElementById("chat_zone").style.display="block";
                   //$('#chat_zone').prepend('<p><strong>' + data + '</strong></p>');
-                  $('#chat_zone').prepend('<strong><center><font size="6", face="Arial, Helvetica,sans-serif">' + data + '</font></center></strong>');
+                  $('#chat_zone').prepend('<strong><font size="6", face="Arial, Helvetica,sans-serif", color="#ffffff">' + data + '</font></strong>');
               }
               else {
                 document.getElementById("chat_zone2").style.display="block";
                 //$('#chat_zone2').prepend('<p><strong>' + data + '</strong></p>');
-                $('#chat_zone2').prepend('<strong><center><font size="6", face ="Arial, Helvetica,sans-serif">' + data + '</font></center></strong>');
+                $('#chat_zone2').prepend('<strong><font size="6", face ="Arial, Helvetica,sans-serif", color="#ffffff">' + data + '</font></strong>');
               }
             })
 
@@ -95,11 +95,11 @@
               countGT++;
               if (countGT == 1){
                 document.getElementById("chat_zone").style.display="block";
-                $('#chat_zone').prepend('<img id="imgABC" src="imgABC.png" align="center"/>');
+                $('#chat_zone').prepend('<img id="imgABC" src="imgABC1.png"/>');
               }
               else {
                 document.getElementById("chat_zone2").style.display="block";
-                $('#chat_zone2').prepend('<img id="imgPQR" src="imgPQR.png" align="center"/>');
+                $('#chat_zone2').prepend('<img id="imgPQR" src="imgPQR1.png"/>');
                 $('#outer').addClass('borderexampleouterclient');
               }
             })
