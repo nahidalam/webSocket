@@ -4,14 +4,6 @@ var url = require("url");
 var path = require("path");
 var ent = require('ent');
 
-// Loading the file index.html displayed to the client
-/*var server = http.createServer(function(req, res) {
-    fs.readFile('./index.html', 'utf-8', function(error, content) {
-        res.writeHead(200, {"Content-Type": "text/html"});
-        res.end(content);
-    });
-});*/
-
 
 //below creates the server functionality.
 //You shouldn't need to change this.
@@ -111,9 +103,6 @@ io.sockets.on('connection', function (socket) {
     // When a "message" is received (click on the button), it's logged in the console
     socket.on('message', function (message) {
         console.log(' Received:' + message);
-        //console.log('Received:' + message);
-        //then broadcast it to all the clients
-        //message = ent.encode(message);
         socket.broadcast.emit('C', message);
     });
     socket.on('wrong', function (message) {
